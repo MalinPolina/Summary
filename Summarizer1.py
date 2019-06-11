@@ -50,11 +50,7 @@ def build_adjmatrix(vsentences):
         for j in range(len(vsentences)):
             if i == j:
                 continue
-            cd = cosine_distance(vsentences[i], vsentences[j])
-            if cd > 0.9:
-                adjacency_matrix[i][j] = 0
-            else:
-                adjacency_matrix[i][j] = 1 - cd
+            adjacency_matrix[i][j] = 1 - cosine_distance(vsentences[i], vsentences[j])
 
     return adjacency_matrix
 
